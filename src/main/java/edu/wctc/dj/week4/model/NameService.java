@@ -7,8 +7,8 @@ import java.util.List;
 public class NameService {
 
 	private List<Name> nameList = Arrays.asList(
-		new Name("1", "Fred", "Jones"),
-		new Name("2", "Joe", "Smith")
+		new Name("1", "Fred", "Jones", new Address("123 Some Street","Milwaukee", "WI","53025")),
+		new Name("2", "Joe", "Smith", new Address("456 Some Street","Springfield", "IL","53029"))
 	);
 
 	public Name getName(String id) {

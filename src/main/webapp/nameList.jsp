@@ -3,10 +3,9 @@
     Created on : Feb 6, 2018, 6:40:47 PM
     Author     : andrewbiewer
 --%>
-
-<%@page import="java.util.List"%>
-<%@page import="edu.wctc.dj.week4.model.Name"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,20 +14,13 @@
 	</head>
 	<body>
 		<table>
-			<%
-			List<Name> nameList =
-				(List<Name>) request.getAttribute("nameList");
-			for (Name name : nameList){
-			%>
-			<tr>
-				<td><%= name.getFirst() %></td>
-				<td>
-		<a href="?id=<%= name.getId() %>"><%= name.getLast() %></a>
-				</td>
-			</tr>
-			<%
-			}
-			%>
+                    <c:forEach var="name" items="${nameList}">
+                        <tr>
+                            <td><a href="?id=<c:out value="${name.id}"/>">
+                                    <c:out value="${name.first}"/></a></td>
+                            <td><c:out value="${name.last}"/></td>
+                        </tr>
+                    </c:forEach>
 		</table>
 	</body>
 </html>
