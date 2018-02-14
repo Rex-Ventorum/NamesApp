@@ -48,17 +48,17 @@ public class NameController extends HttpServlet {
 			Name name = nameService.getName(id);
 			request.setAttribute("name", name);
 			dispatcher =
-				request.getRequestDispatcher("/nameDetail.jsp");
+				request.getRequestDispatcher("/WEB-INF/nameDetail.jsp");
 		} else if (search != null) {
 			List<Name> nameList = nameService.findNames(search);
 			request.setAttribute("nameList", nameList);
 			dispatcher =
-				request.getRequestDispatcher("/nameList.jsp");
+				request.getRequestDispatcher("/WEB-INF/nameList.jsp");
 		} else {
 			List<Name> nameList = nameService.getAllNames();
 			request.setAttribute("nameList", nameList);
 			dispatcher =
-				request.getRequestDispatcher("/nameList.jsp");
+				request.getRequestDispatcher("/WEB-INF/nameList.jsp");
 		}
 
 		dispatcher.forward(request, response);
