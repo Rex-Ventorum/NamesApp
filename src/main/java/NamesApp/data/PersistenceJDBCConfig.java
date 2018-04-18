@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "edu.wctc.dj.week12.namesapp12")
+@EnableJpaRepositories(basePackages = "NamesApp")
 public class PersistenceJDBCConfig {
 	
 	@Bean
@@ -27,7 +27,7 @@ public class PersistenceJDBCConfig {
 			= new LocalContainerEntityManagerFactoryBean();
 
 		emf.setDataSource(dataSource());
-		emf.setPackagesToScan("edu.wctc.dj.week12.namesapp12");
+		emf.setPackagesToScan("NamesApp");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
       		emf.setJpaVendorAdapter(vendorAdapter);
